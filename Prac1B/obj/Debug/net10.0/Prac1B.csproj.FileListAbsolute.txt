@@ -1,0 +1,15 @@
+/workspaces/a1947530/Prac1B/bin/Debug/net10.0/Prac1B
+/workspaces/a1947530/Prac1B/bin/Debug/net10.0/Prac1B.deps.json
+/workspaces/a1947530/Prac1B/bin/Debug/net10.0/Prac1B.runtimeconfig.json
+/workspaces/a1947530/Prac1B/bin/Debug/net10.0/Prac1B.dll
+/workspaces/a1947530/Prac1B/bin/Debug/net10.0/Prac1B.pdb
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.AssemblyInfoInputs.cache
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.AssemblyInfo.cs
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.csproj.CoreCompileInputs.cache
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.sourcelink.json
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.dll
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/refint/Prac1B.dll
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.pdb
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/Prac1B.genruntimeconfig.cache
+/workspaces/a1947530/Prac1B/obj/Debug/net10.0/ref/Prac1B.dll
