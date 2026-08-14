@@ -36,13 +36,14 @@ public class BankAccount
     // 取款：余额太低抛出异常
     public void Withdraw(decimal amount)
     {
-        if (Balance < amount)
+        if (amount < 0)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
+        if(amount > Balance)
         {
             throw new InvalidOperationException("Balance too low, cannot withdraw.");
         }
-        if(amount > 0)
-        {
-            Balance -= amount;
-        }
+        Balance -= amount; 
     }
 }
