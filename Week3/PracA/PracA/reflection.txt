@@ -1,0 +1,4 @@
+Reflection: Inheritance
+1. Inheritance reduces duplicate code, BankAccount shared deposit/withdraw logic no need rewrite in each subclass.
+2. SavingsAccount: manage interest rate and apply interest logic.
+3. CheckingAccount: add transaction fee for every successful withdrawal.
