@@ -1,0 +1,7 @@
+Q1: What does polymorphism allow us to do that inheritance alone does not?
+Polymorphism lets different subclasses implement the same abstract method, and we can treat all subclass instances as the base abstract Employee type. We can store FullTimeEmployee and Contractor in the same List<Employee> and call CalculatePay() / GenerateReport(), each object runs its own version of method, without writing separate if‑else logic for every subclass. Inheritance only shares fields and code from parent, polymorphism enables different behaviour at runtime for child classes.
+
+Q2: How is this similar or different from Python (or C++)’s behaviour?
+C#: We use abstract class / interface, override keyword, compile‑time checks.
+C++: Similar virtual functions for runtime polymorphism.
+Python: No formal abstract keyword; polymorphism is duck‑typing, no compile‑time checks.
