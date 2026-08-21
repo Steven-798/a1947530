@@ -1,6 +1,6 @@
 ﻿using PracA;
 
-// SavingsAccount演示
+// SavingsAccount
 SavingsAccount sa = new SavingsAccount("Jordan", 1500, 3.5);
 sa.DisplayAccountInfo();
 sa.ApplyInterest();
