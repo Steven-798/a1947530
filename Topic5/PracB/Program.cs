@@ -7,9 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // ================================================================
-        // Task 1: Working with the Built-in LinkedList<T> Class
-        // ================================================================
+        
         Console.WriteLine("========== Task 1: LinkedList<int> ==========\n");
 
         LinkedList<int> numbers = new LinkedList<int>();
@@ -53,9 +51,9 @@ class Program
         Console.WriteLine("最终:");
         PrintLinkedList(numbers);
 
-        // ================================================================
+      
         // Task 2: Collections of classes
-        // ================================================================
+        
         Console.WriteLine("\n\n========== Task 2: Collections of Person ==========\n");
 
         // 1. 创建 10 个随机的人（名字和年龄有多样性）
