@@ -39,16 +39,13 @@ class Program
             new BankAccount("Jack", 500)
         };
 
-        // 创建 Stack 和 Queue，各放入 10 个账户
         Stack<BankAccount> accountStack = new Stack<BankAccount>(accounts);
         Queue<BankAccount> accountQueue = new Queue<BankAccount>(accounts);
 
-        // Stack: Select 选择 Owner，OrderBy 排序
         Console.WriteLine(" Stack: 按 Owner 排序 ");
         var stackOwners = accountStack.Select(a => a.Owner).OrderBy(o => o).ToList();
         foreach (string owner in stackOwners) Console.WriteLine(owner);
 
-        // Queue: Select 选择 Owner，OrderBy 排序
         Console.WriteLine("\n Queue: 按 Owner 排序 ");
         var queueOwners = accountQueue.Select(a => a.Owner).OrderBy(o => o).ToList();
         foreach (string owner in queueOwners) Console.WriteLine(owner);
@@ -56,7 +53,6 @@ class Program
         // Task 3: Where 过滤 + Select + OrderBy
         Console.WriteLine("\n\n Task 3: Where + Select + OrderBy \n");
 
-        // Stack: Where 过滤 Owner 包含 "e"，Select 选择 Owner 和 Balance，OrderBy 按 Balance 排序
         Console.WriteLine("Stack: Owner 包含 'e'，按 Balance 排序 ");
         var stackFiltered = accountStack
             .Where(a => a.Owner.Contains("e"))
