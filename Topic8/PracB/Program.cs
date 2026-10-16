@@ -6,55 +6,59 @@ using System.Text.Json;
 
 class Program
 {
-    public static void FileWriter<T>(string path, T objectToWrite) where T : class
+    // 写文件方法，T是泛型，什么类都能存
+    public static void FileWriter<T>(string path, T obj) where T : class
     {
-        string json = JsonSerializer.Serialize(objectToWrite, new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonSerializer.Serialize(obj, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(path, json);
     }
 
+    // 读文件方法
     public static T FileReader<T>(string path) where T : class
     {
         string json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<T>(json)!;
     }
 
-    static void Main()
+    static void Main(string[] args)
     {
-        // ===== List 测试 =====
-        Console.WriteLine("=== List<Player> 10000个 ===");
+        // ===== 测 List =====
+        Console.WriteLine("=== List 10000个玩家 ===");
+        
         List<Player> list = new List<Player>();
-        for (int i = 0; i < 10_000; i++)
+        for (int i = 0; i < 10000; i++)
         {
-            list.Add(new Player($"Player{i}"));
+            list.Add(new Player("Player" + i));
         }
-        FileWriter("./list_10000.json", list);
-        List<Player> loadedList = FileReader<List<Player>>("./list_10000.json");
-
+        
+        FileWriter("./list.json", list);
+        List<Player> list2 = FileReader<List<Player>>("./list.json");
+        Console.WriteLine("读回来了 " + list2.Count + " 个");
+        
         GC.Collect();
-        long listHeap = GC.GetGCMemoryInfo().HeapSizeBytes;
-        long listPeak = Process.GetCurrentProcess().PeakWorkingSet64;
-        Console.WriteLine($"HeapSizeBytes: {listHeap}");
-        Console.WriteLine($"PeakWorkingSet64: {listPeak}");
-
-        // 清空，释放内存
+        Console.WriteLine("HeapSize: " + GC.GetGCMemoryInfo().HeapSizeBytes);
+        Console.WriteLine("PeakMemory: " + Process.GetCurrentProcess().PeakWorkingSet64);
+        
+        // 清掉，给下面LinkedList腾地方
         list.Clear();
-        loadedList.Clear();
+        list2.Clear();
         GC.Collect();
-
-        // ===== LinkedList 测试 =====
-        Console.WriteLine("\n=== LinkedList<Player> 10000个 ===");
-        LinkedList<Player> linked = new LinkedList<Player>();
-        for (int i = 0; i < 10_000; i++)
+        
+        // ===== 测 LinkedList =====
+        Console.WriteLine("\n=== LinkedList 10000个玩家 ===");
+        
+        LinkedList<Player> link = new LinkedList<Player>();
+        for (int i = 0; i < 10000; i++)
         {
-            linked.AddLast(new Player($"Player{i}"));
+            link.AddLast(new Player("Player" + i));
         }
-        FileWriter("./linked_10000.json", linked);
-        LinkedList<Player> loadedLinked = FileReader<LinkedList<Player>>("./linked_10000.json");
-
+        
+        FileWriter("./link.json", link);
+        LinkedList<Player> link2 = FileReader<LinkedList<Player>>("./link.json");
+        Console.WriteLine("读回来了 " + link2.Count + " 个");
+        
         GC.Collect();
-        long linkedHeap = GC.GetGCMemoryInfo().HeapSizeBytes;
-        long linkedPeak = Process.GetCurrentProcess().PeakWorkingSet64;
-        Console.WriteLine($"HeapSizeBytes: {linkedHeap}");
-        Console.WriteLine($"PeakWorkingSet64: {linkedPeak}");
+        Console.WriteLine("HeapSize: " + GC.GetGCMemoryInfo().HeapSizeBytes);
+        Console.WriteLine("PeakMemory: " + Process.GetCurrentProcess().PeakWorkingSet64);
     }
 }
